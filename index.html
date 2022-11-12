@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>TOKO GROSIR</title>
+
+  <link rel="shortcut icon" href="assets/img/icon-192.png" type="image/x-icon">
+
+  <link rel="manifest" href="manifest.json">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+  <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.1/css/fixedHeader.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  <!-- Data Tables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Eksport to Excel -->
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+  <style>
+    .img-splashscreen img {
+      width: 100px;
+      height: auto;
+    }
+
+    .img-splashscreen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 200px;
+    }
+    
+    /* #google_translate_element button{
+      padding: 0;
+    } */
+    /* .goog-te-combo{
+      width: auto;
+      height: 30px;
+      font-family: 'Poppins';
+      border-radius: 10px;
+      padding: 5px;
+    } */
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Preload -->
+  <div id="preloader">
+    <div class="img-splashscreen">
+      <img src="assets/img/icon.png" alt="">
+    </div>
+    <div class="title text-center mt-5">
+      <h3 class="text-white">Toko Grosir Ridwan</h3>
+    </div>
+    <!-- <div class="sk-three-bounce">
+      <div class="sk-child sk-bounce1"></div>
+      <div class="sk-child sk-bounce2"></div>
+      <div class="sk-child sk-bounce3"></div>
+    </div> -->
+  </div>
+
+
+  <!-- Main Wrapper -->
+  <div id="main-wrapper">
+
+    <!-- Nav Header -->
+    <div class="nav-header">
+
+      <a href="" class="brand-logo">
+        <img src="assets/img/icon.png" width="50px" alt="">
+        <span class="brand-title" style="font-weight: bold;">Toko Grosir</span>
+      </a>
+
+      <div class="nav-control">
+        <div class="hamburger">
+          <span class="line"></span><span class="line"></span><span class="line"></span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-content">
+        <nav class="navbar navbar-expand">
+          <div class="collapse navbar-collapse justify-content-between">
+            <div class="header-left">
+              <div class="dashboard_bar">
+                TOKO GROSIR RIDWAN
+              </div>
+            </div>
+
+            <div class="dropdown" style="width: 100px;">
+              <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Tema
+              </button>
+              <ul class="dropdown-menu tema" style="padding: 0 !important;">
+                <li class="btn btn-sm" style="width: 100%;" onclick="setDarkMode(false)"><i class="bi bi-sun"
+                    style="margin-right: 5px;"></i> Light
+                </li>
+                <li class="btn btn-sm" style="width: 100%;" onclick="setDarkMode(true)"><i class="bi bi-moon-fill"
+                    style="margin-right: 5px;"></i>
+                  Dark</li>
+              </ul>
+            </div>
+
+          </div>
+        </nav>
+      </div>
+    </div>
+
+
+    <!-- Sidebar -->
+    <div class="deznav">
+      <div class="deznav-scroll mm-active">
+        <ul class="metismenu mm-show" id="menu">
+          <li class="mm-active">
+            <a class="ai-icon" href="" aria-expanded="false">
+              <i class="bi bi-grid"></i>
+              <span class="nav-text">Data Barang</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- Content Body Start -->
+    <div class="content-body">
+      <!-- row -->
+      <div class="container-fluid">
+        <!-- <div class="page-titles">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Data Barang</a></li>
+          </ol>
+        </div> -->
+        <!-- row -->
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Data Barang</h4>
+                <div class="button-list">
+                  <button type="button" data-toggle="modal" data-target="#addBarangModal" onclick="tambah()"
+                    class="btn btn-sm light btn-primary" data-animation="slide" data-plugin="custommodal"
+                    data-overlaySpeed="200" data-overlayColor="#36404a">
+                    <i class="fas fa-plus-circle"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body table-responsive">
+                <table id="tabel" class="table" style="width:100% !important">
+                </table>
+              </div>
+
+              <div class="dropdown-center text-center pb-4">
+                <button class="btn btn-primary btn-sm dropdown-toggle mb-3" type="button"  data-bs-toggle="dropdown" aria-expanded="false">Simpan </button>
+                <ul class="dropdown-menu" style="padding: 0 !important;">
+                  <li class="btn btn-sm" style="width: 100%;" onclick="printTable()">Print & Simpan PDF</li>
+                  <li class="btn btn-sm" style="width: 100%;" onclick="ExportToExcel('xlsx')">Export ke Excel</li>
+                  <!-- <li class="btn btn-sm" style="width: 100%;" onclick="tableToExcel('tabel', 'Students')">Export to Excel</li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="google_translate_element" class="translate text-center"></div>
+    </div>
+
+    <!-- Modal Tambah -->
+    <div class="modal fade" id="addBarangModal">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Tambah Data Barang</h5>
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" id="tambahUser" action="javascript:void(0)">
+
+              <div class="form-group">
+                <div class="col-12">
+                  <label for="nama_barang">Nama Barang</label>
+                  <input class="form-control mb-1" type="text" id="namaBarang" placeholder="Masukan Nama Barang"
+                    name="nama_barang" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-12">
+                  <label for="harga_barang">Harga Barang</label>
+                  <input class="form-control mb-1" type="number" id="hargaBarang" placeholder="Masukan Harga Barang"
+                    name="harga_barang" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-12">
+                  <label for="jumlah_barang">Jumlah Barang</label>
+                  <input class="form-control mb-1" type="number" id="jumlahBarang" placeholder="Masukan Jumlah Barang"
+                    name="jumlah_barang" required>
+                </div>
+              </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger light" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary light" id="tambahButton"
+              onclick="simpan_tambah()">Simpan</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editBarangModal">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Data</h5>
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" id="editUser" method="POST" action="javascript:void(0)">
+              <input type="hidden" id="rental_id" value="">
+              <div class="form-group">
+                <div class="col-12">
+                  <label for="edit_nama_barang">Nama Barang</label>
+                  <input class="form-control mb-1" type="text" id="editnamaBarang" placeholder="Masukan Nama Barang"
+                    name="edit_nama_barang" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-12">
+                  <label for="edit_harga_barang">Harga Barang</label>
+                  <input class="form-control mb-1" type="number" id="editHargaBarang" placeholder="Masukan Harga"
+                    name="edit_harga_barang" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-12">
+                  <label for="edit_jumlah_barang">Jumlah Barang</label>
+                  <input class="form-control mb-1" type="number" id="editJumlahBarang" placeholder="Masukan Jumlah"
+                    name="edit_jumlah_barang" required>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger light" data-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-primary light" id="editButton" onclick="simpan_edit()">Simpan
+                  Perubahan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js">
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#tabel").table2excel({
+          exclude: ".noExport",
+          filename: "name-of-the-file",
+        });
+      });
+    </script> -->
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'id'
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+    <!-- Eksport to Excel -->
+    <script>
+      function ExportToExcel(type, fn, dl) {
+        var elt = document.getElementById('tabel');
+        var wb = XLSX.utils.table_to_book(elt, {
+          sheet: "sheet1"
+        });
+        return dl ?
+          XLSX.write(wb, {
+            bookType: type,
+            bookSST: true,
+            type: 'base64',
+            importCSS: true,
+            importStyle: true
+          }) :
+          XLSX.writeFile(wb, fn || ('Data Barang.' + (type || 'xlsx')));
+      }
+    </script>
+
+
+    <!-- SweetAlert CDN -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <!-- Required vendors -->
+    <script src="assets/vendor/global/global.min.js"></script>
+    <script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/custom.min.js"></script>
+    <script src="assets/js/deznav-init.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/register.js"></script>
+    <script src="service-worker.js"></script>
+
+
+    <!-- Tema Dark Mode -->
+    <script>
+      if (localStorage.getItem('theme') == 'dark')
+        setDarkMode(true)
+
+      function setDarkMode(isDark) {
+        if (isDark) {
+          document.body.setAttribute('id', 'darkmode')
+          localStorage.setItem('theme', 'dark')
+        } else {
+          document.body.setAttribute('id', '')
+          localStorage.removeItem('theme')
+        }
+      }
+    </script>
+
+
+    <!-- Sweet Alert Delete -->
+    <script>
+      function deleteAlert(id) {
+        Swal.fire({
+          title: "Hapus Data Barang?",
+          text: `Data Barang ini akan dihapus. Apakah anda yakin?`,
+          icon: "warning",
+          showCancelButton: !0,
+          confirmButtonColor: "#008C72",
+          cancelButtonColor: "#DC3545",
+          confirmButtonText: "Ya, hapus!",
+          cancelButtonText: "Batal"
+        }).then(function (t) {
+          if (t.value) {
+            hapus(id);
+            Swal.fire({
+              icon: 'success',
+              title: 'Data Barang telah berhasil dihapus.',
+              target: 'body',
+              iconColor: 'white',
+              customClass: {
+                popup: 'colored-toast'
+              },
+              toast: true,
+              position: 'top-right',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              timer: 3500,
+            });
+          }
+        })
+      }
+    </script>
+
+
+    <!-- Data Table -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="assets/js/printThis.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#tabel').dataTable();
+      });
+    </script>
+
+    <script>
+      function printTable() {
+        $('#tabel').printThis({
+          header: "<h1 class='text-center mb-5'>Data Barang</h1>",
+          importCSS: true,
+          importStyle: true,
+        });
+      }
+    </script>
+
+
+    <!-- JavaScript Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
